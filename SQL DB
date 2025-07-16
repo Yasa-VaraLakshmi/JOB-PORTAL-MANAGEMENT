@@ -1,0 +1,57 @@
+LOGIN TABLE:
+
+CREATE TABLE logininfo (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) UNIQUE,
+    password VARCHAR(100)
+);
+
+
+
+JOBS TABLE:
+
+CREATE TABLE jobs (
+    jobid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    job_title VARCHAR(100) NOT NULL,
+    loc VARCHAR(100),
+    date_posted DATE NOT NULL
+);
+
+
+TABLE1(1 TO 10) TABLE:
+CREATE TABLE table1 (
+    app_no INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    dob DATE NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    phone_no VARCHAR(15) NOT NULL,
+    w_status VARCHAR(20),
+    exp VARCHAR(25),
+    app_date DATE NOT NULL
+);
+
+COMPANIES TABLE:
+CREATE TABLE companies (
+    cmp_id INT NOT NULL PRIMARY KEY,
+    cmp_name VARCHAR(100),
+    location VARCHAR(100),
+    email VARCHAR(100),
+    phone_no VARCHAR(20),
+    ceo VARCHAR(100),
+    established_in INT
+);
+
+JOB_DETAILS:
+CREATE TABLE jobs_details (
+    JobID INT,
+    Description TEXT NOT NULL,
+    CompanyID INT NOT NULL,
+    Salary DECIMAL(10,2),
+    Qualification TEXT NOT NULL,
+    Exp_needed TEXT,
+    skills TEXT,
+    FOREIGN KEY (JobID) REFERENCES jobs(jobid),
+    FOREIGN KEY (CompanyID) REFERENCES companies(cmp_id)
+);
